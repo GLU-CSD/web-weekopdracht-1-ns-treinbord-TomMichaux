@@ -16,15 +16,284 @@
 #middle {
     width: 568px;
     height: 339px;
-    background-color: rgb(0, 0, 106);
+    background-color: rgb(2, 79, 219);
     padding: 35px;
     box-sizing: border-box;
     border: 2px solid #000;
+
+    display: grid;
+    grid-template-areas: "tijd treinsoort"
+                          "plaatsvanbestemming plaatsvanbestemming"
+                          "via via"
+                          "treinlengte treinlengte"
+                          "volgende volgende";
+                        
+                          
 }
 
 #right{
     width:128px;
     height: 335px;
-    background-color: rgb(0, 0, 106);
+    background-color: rgb(2, 79, 219);
     border: 2px solid #000;
+    padding: 0px ;  
+
+    display: grid;
+    grid-template-areas: "TreinspoorNummer"
+                         "TreinspoorNummer18b"
+                         "b";
+                         
 }
+
+#TreinspoorNummer{
+    background-color: rgb(255, 255, 255);
+    height: 15px;
+    width: 65px;
+    margin: 0 auto;
+    position: absolute;
+    left: 1315px;
+    top:310px;
+    font-size: 12px;
+    color:rgb(17, 26, 131);
+}
+
+#b{
+    position: absolute;
+    left: 1350px;
+    top:331px;
+    font-size: 25px;
+    color:rgb(17, 26, 131);
+}
+
+#TreinspoorNummer18b{
+    background-color: rgb(255, 255, 255);
+    height: px; 
+    width: 84px;
+    position: absolute;
+    left: 1296px;
+    top:325px;
+    font-size:50px;
+    color:rgb(17, 26, 131);
+}
+
+
+#tijd{
+    background-color: rgb(255, 255, 255);
+    grid-area: tijd;
+    font-size: 35px;
+    color:rgb(17, 26, 131)
+}
+
+#bestemming{
+    background-color: rgb(255, 255, 255);
+    grid-area: plaatsvanbestemming;
+    font-size: 50px;
+    color:rgb(17, 26, 131);
+}
+
+#via{
+    background-color: rgb(255, 255, 255);
+    grid-area: via;
+    font-size: 27.5px;
+    color:rgb(17, 26, 131);
+}
+
+#treinsoort{
+    background-color: rgb(255, 255, 255);
+    grid-area: treinsoort;
+    font-size: 35px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGxIKWLSRuDoQsM6lFK4RpiJntcj5DkkU8KQ&s);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    color:rgb(17, 26, 131);
+    background-position-x: 75%;
+    background-position-y: 15%;
+}
+
+#treinlengte{
+    background-color: rgb(255, 255, 255);
+    grid-area: treinlengte;
+    background-image: url(https://uploads-eu-west-1.insided.com/ns-nl/attachment/b1c3d179-1f9c-44cc-b5ae-b95658a0be4a.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position-x: 47%;
+    background-position-y: 100%;
+}
+
+#volgende{
+    background-color:rgb(17, 26, 131);
+    grid-area: volgende;
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  body.loaded #klok {
+    opacity: 1;
+  }
+  
+  #wijzer-uur,
+  #wijzer-min,
+  #wijzer-sec {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    margin-left: -1.5vmin;
+    width: 3vmin;
+  }
+  
+  body.loaded #wijzer-uur,
+  body.loaded #wijzer-min,
+  body.loaded #wijzer-sec {
+    transition: transform 1s;
+  }
+  
+  #wijzer-uur,
+  #wijzer-min {
+    background: black;
+    border-radius: 0 0 1.5vmin 1.5vmin;
+  }
+  
+  #wijzer-uur,
+  #wijzer-min,
+  #wijzer-sec .line,
+  #wijzer-sec .circle {
+    box-shadow: -10px 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #wijzer-uur {
+    position: absolute; 
+    margin-top: -10vmin;
+    height: 12vmin;
+    width: 1.25vmin;
+    left: 598px;
+    top: 525px;
+
+    transform-origin: top;
+  }
+  
+  #wijzer-min {
+    position: absolute;
+    margin-top: -10vmin;
+    height: 12vmin;
+    width: 1.25vmin;
+    left: 598px;
+    top: 525px;
+    
+  
+    transform-origin: top;
+  }
+  
+  #wijzer-sec {
+    position: absolute;
+    margin-top: -5vmin;
+    height: 40vmin;
+    left: 590px;
+    top: 440px;
+
+    
+  
+    transform-origin: 1.5vmin 5vmin;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  #wijzer-sec:before {
+    content: "";
+    position: absolute;
+    top: 4vmin;
+    width: 2vmin;
+    height: 2vmin;
+    background: #990000;
+    border-radius: 2vmin;
+  }
+  #wijzer-sec .line {
+    
+    background: #990000;
+    width: 0.45vmin;
+    height: 15vmin;
+    
+  }
+  #wijzer-sec .line:first-child {
+    height: 10vmin;
+  }
+  #wijzer-sec .line:last-child {
+    height: 4.90vmin;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+  }
+  #wijzer-sec .circle {
+    border: 0.55vmin solid #990000;
+    border-radius: 100%;
+    width: 1.5vmin;
+    height: 1.5vmin;
+  }
+  
+  #minuten {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+  #minuten .minuut {
+    position: absolute;
+    top: 160px;;
+    left: 50%;
+    margin-left: -3vmin;
+    margin-top: -0.5vmin;
+    width: 6vmin;
+    height: 1.5vmin;
+  
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  #minuten .minuut:before {
+    position: absolute;
+    content: "";
+    display: block;
+    background: #1441ad;
+    width: 0.5vmin;
+    height: 0.5vmin;
+    border-radius: 3vmin;
+    left:-245%;
+  }
+  #minuten .minuut:nth-child(5n + 1):before {
+    position: absolute;
+    width: 3vmin;
+    height: 1.5vmin;
+    left: -285%;
+    
+  }
+  
+  #logo {
+    position: absolute;
+    top: 55%;
+    left: 32.8%;
+    margin-left: -5vmin;
+    width: 5vmin;
+    height: 2.5vmin;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiICAgdmVyc2lvbj0iMS4xIiAgIHdpZHRoPSI1MzguMzI5NTMiICAgaGVpZ2h0PSIyMTAuMjYyNSIgICBpZD0ic3ZnMiIgICB4bWw6c3BhY2U9InByZXNlcnZlIiAgIGlua3NjYXBlOnZlcnNpb249IjAuNDguMSAiICAgc29kaXBvZGk6ZG9jbmFtZT0iQUpBWC5zdmciPjxzb2RpcG9kaTpuYW1lZHZpZXcgICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIgICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IiAgICAgYm9yZGVyb3BhY2l0eT0iMSIgICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiICAgICBncmlkdG9sZXJhbmNlPSIxMCIgICAgIGd1aWRldG9sZXJhbmNlPSIxMCIgICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIgICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iNjQwIiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iNDgwIiAgICAgaWQ9Im5hbWVkdmlldzEyIiAgICAgc2hvd2dyaWQ9ImZhbHNlIiAgICAgZml0LW1hcmdpbi10b3A9IjAiICAgICBmaXQtbWFyZ2luLWxlZnQ9IjAiICAgICBmaXQtbWFyZ2luLXJpZ2h0PSIwIiAgICAgZml0LW1hcmdpbi1ib3R0b209IjAiICAgICBpbmtzY2FwZTp6b29tPSIwLjQyMDk2Nzc0IiAgICAgaW5rc2NhcGU6Y3g9IjI2OS4xNjQ3NSIgICAgIGlua3NjYXBlOmN5PSIxMDUuMTMxMjUiICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMCIgICAgIGlua3NjYXBlOndpbmRvdy15PSIwIiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIgICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImcxOCIgLz48bWV0YWRhdGEgICAgIGlkPSJtZXRhZGF0YTEzIj48cmRmOlJERj48Y2M6V29yayAgICAgICAgIHJkZjphYm91dD0iIj48ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD48ZGM6dHlwZSAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz48ZGM6dGl0bGUgLz48L2NjOldvcms+PC9yZGY6UkRGPjwvbWV0YWRhdGE+PGRlZnMgICAgIGlkPSJkZWZzNiI+PGNsaXBQYXRoICAgICAgIGlkPSJjbGlwUGF0aDIwIj48cGF0aCAgICAgICAgIGQ9Im0gMCw4NDE4LjkgNTk1Mi43NSwwIEwgNTk1Mi43NSwwIDAsMCAwLDg0MTguOSB6IiAgICAgICAgIGlkPSJwYXRoMjIiICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz48L2NsaXBQYXRoPjwvZGVmcz48ZyAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMS4yNSwwLDAsLTEuMjUsLTEwMy45OTgsNjMxLjMyMjUpIiAgICAgaWQ9ImcxMiI+PGcgICAgICAgdHJhbnNmb3JtPSJzY2FsZSgwLjEsMC4xKSIgICAgICAgaWQ9ImcxNCI+PGcgICAgICAgICBpZD0iZzE2Ij48ZyAgICAgICAgICAgY2xpcC1wYXRoPSJ1cmwoI2NsaXBQYXRoMjApIiAgICAgICAgICAgaWQ9ImcxOCI+PHBhdGggICAgICAgICAgICAgZD0ibSAyNjY2LjczLDQ3MTcuODYgYyAzOC4xMywwIDY2LjU3LC0xOS4wNiA5NS4xNywtNDcuMzcgbCA0ODQuNzksLTQ4NC42NCBjIDk1LjE2LC05NS4wMiAxOTkuNTgsLTE0Mi42OCAzNDIuMjUsLTE0Mi42OCBsIDkwMy4xNSwwIC0zMzIuNzMsLTMzMi43MiAtODQ2LjI1LDAgYyAtNDcuNTEsMCAtNzUuODEsOS41MyAtMTA0LjQsMzguMTIgbCAtNDg0Ljk0LDQ4NC42NCBjIC05NS4wMiw5NS4zMSAtMTk5LjQzLDE0Mi42OCAtMzQyLjExLDE0Mi42OCBsIC05MDMuMTUsMCAzMzIuNzMsMzQxLjk3IDg1NS40OSwwIHogbSAzMzIuODcsMTkwLjA0IGMgLTk1LjAyLDk1LjMyIC0yMDkuMjYsMTQyLjY4IC0zMzIuODcsMTQyLjY4IGwgLTk4OC42NCwwIC04NDYuMTA2LC04MzYuMTQgODQ2LjEwNiwtODQ1Ljk2IDQ3NS40LDAgLTY3NC45OCw2NzQuNjkgOTAzLjE1LDAgYyAzNy45OCwwIDc1Ljk2LC05LjUzIDEwNC41NiwtMzguMTIgTCAyOTcxLDM1MTAuODcgYyA5NS4wMiwtOTUuMDIgMjA5LjExLC0xNDIuMzkgMzMyLjczLC0xNDIuMzkgbCA5OTguMTcsMCA4MzYuNzIsODQ1Ljk2IC04MzYuNzIsODM2LjE0IC00ODQuNzksMCA2NzQuOTgsLTY3NC42OSAtOTAzLjE1LDAgYyAtMzguMTIsMCAtNjYuNDMsMTkuMDYgLTk1LjAzLDM3Ljg0IiAgICAgICAgICAgICBpZD0icGF0aDI0IiAgICAgICAgICAgICBzdHlsZT0iZmlsbDojMzMzMzk5O2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lIiAgICAgICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPjwvZz48L2c+PC9nPjwvZz48L3N2Zz4=);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+  }
+  
